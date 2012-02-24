@@ -1,8 +1,8 @@
 name: rundeck
 version: %{_version}
 release: %{_release}%{?_buildnumber:.%{_buildnumber}}%{?_alphatag:.%{_alphatag}}
-license: APL
-summary: It Slices, it Dices, it Takes Out Your Garbage
+license: Apache License, version 2.0
+summary: Web console for command dispatching and service lifecycle management
 group: System
 requires(post): chkconfig
 requires(postun): chkconfig
@@ -11,14 +11,8 @@ requires: openssh
 requires: rundeck-config
 
 %description
-RunDeck, is no ordinary wooden deck. You can build a bon fire on this deck.
-Rundeck provides a single console for dispatching commands across many resources.
-
-%changelog
-* Thu Jan 13 2011 Greg Schueler <greg@dtosolutions.com> 1.1-0
-	- Soft-coded version numbers
-* Wed Dec 15 2010 Noah Campbell <noahcampbell@gmail.com> 1.0-1
-	- Run the service as the rundeck user.
+RunDeck is no ordinary wooden deck. You can build a bonfire on this deck.
+RunDeck provides a single console for dispatching commands across many resources.
 
 %pre
 getent group rundeck >/dev/null || groupadd rundeck
@@ -125,3 +119,12 @@ All configuration related artifacts are stored in this package.
 # SSL Configuration
 %dir /etc/rundeck/ssl
 %config /etc/rundeck/ssl/ssl.properties
+
+%changelog
+* Wed Dec 15 2010 Noah Campbell <noahcampbell@gmail.com> 1.0-1
+	- Run the service as the rundeck user.
+* Thu Jan 13 2011 Greg Schueler <greg@dtosolutions.com> 1.1-0
+	- Soft-coded version numbers
+* Fri Feb 24 2010 Moses Lei <mlei@dtosolutions.com> 1.4.3-0
+	- Updated human-readable fields
+
