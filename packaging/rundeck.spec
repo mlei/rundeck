@@ -20,7 +20,9 @@ getent passwd rundeck >/dev/null || useradd -m -g rundeck rundeck
 if [ ! -e ~rundeck/.ssh/id_rsa ]; then
 	su -c "ssh-keygen -q -t rsa -C '' -N '' -f ~rundeck/.ssh/id_rsa" rundeck
 fi
-
+if [ -e ~rundeck/.ssh/rundeck.id_rsa ]; then
+	echo 'WARNING: There is a key at ~rundeck/.ssh/rundeck.id_rsa but this is no longer the default key location.' >&2
+fi
 %post
 /sbin/chkconfig --add rundeckd
 
