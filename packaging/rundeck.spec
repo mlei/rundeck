@@ -121,12 +121,12 @@ All configuration related artifacts are stored in this package.
 %config /etc/rundeck/ssl/ssl.properties
 
 %changelog
-* Wed Dec 15 2010 Noah Campbell <noahcampbell@gmail.com> 1.0-1
-	- Run the service as the rundeck user.
-* Thu Jan 13 2011 Greg Schueler <greg@dtosolutions.com> 1.1-0
-	- Soft-coded version numbers
-* Fri Feb 24 2012 Moses Lei <mlei@dtosolutions.com> 1.4.3-0
-	- Updated human-readable fields
 * Mon Feb 27 2012 Moses Lei <mlei@dtosolutions.com> 1.4.3-0
 	- Changed location of default key to ~rundeck/.ssh/id_rsa
+* Fri Feb 24 2012 Moses Lei <mlei@dtosolutions.com> 1.4.3-0
+	- Updated human-readable fields
+* Thu Jan 13 2011 Greg Schueler <greg@dtosolutions.com> 1.1-0
+	- Soft-coded version numbers
+* Wed Dec 15 2010 Noah Campbell <noahcampbell@gmail.com> 1.0-1
+	- Run the service as the rundeck user.
 
