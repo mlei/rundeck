@@ -17,8 +17,8 @@ RunDeck provides a single console for dispatching commands across many resources
 %pre
 getent group rundeck >/dev/null || groupadd rundeck
 getent passwd rundeck >/dev/null || useradd -m -g rundeck rundeck
-if [ ! -e ~rundeck/.ssh/rundeck.id_rsa ]; then
-	su -c "ssh-keygen -q -t rsa -C '' -N '' -f ~rundeck/.ssh/rundeck.id_rsa" rundeck
+if [ ! -e ~rundeck/.ssh/id_rsa ]; then
+	su -c "ssh-keygen -q -t rsa -C '' -N '' -f ~rundeck/.ssh/id_rsa" rundeck
 fi
 
 %post
@@ -125,6 +125,8 @@ All configuration related artifacts are stored in this package.
 	- Run the service as the rundeck user.
 * Thu Jan 13 2011 Greg Schueler <greg@dtosolutions.com> 1.1-0
 	- Soft-coded version numbers
-* Fri Feb 24 2010 Moses Lei <mlei@dtosolutions.com> 1.4.3-0
+* Fri Feb 24 2012 Moses Lei <mlei@dtosolutions.com> 1.4.3-0
 	- Updated human-readable fields
+* Mon Feb 27 2012 Moses Lei <mlei@dtosolutions.com> 1.4.3-0
+	- Changed location of default key to ~rundeck/.ssh/id_rsa
 
