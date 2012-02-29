@@ -23,6 +23,24 @@ fi
 if [ -e ~rundeck/.ssh/rundeck.id_rsa ]; then
 	echo 'WARNING: There is a key at ~rundeck/.ssh/rundeck.id_rsa but this is no longer the default key location.' >&2
 fi
+#
+# set up ulimit
+#
+grep \^%rundeck /etc/security/limits.conf -q
+if [ $? -ne 0 ]; then
+
+cat <<END >> /etc/security/limits.conf
+rundeck soft nofile 65535
+rundeck hard nofile 65535
+END
+fi
+grep "^session required /lib/security/pam_limits.so" /etc/pam.d/login -q
+if [ $? -ne 0 ]; then
+    cat <<END >> /etc/pam.d/login
+session required /lib/security/pam_limits.so
+END
+fi
+
 %post
 /sbin/chkconfig --add rundeckd
 
